@@ -1,0 +1,31 @@
+ npm install -D tailwindcss postcss autoprefixer
+npm install -D tailwindcss@3 postcss autoprefixer
+npx tailwindcss init -p 
+## 3. Configuration de Tailwind CSS
+- Dans `tailwind.config.js`, ajoutez :
+```js
+module.exports = {
+  content: [
+    "./src/**/*.{html,ts}",
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [
+    require('@tailwindcss/forms'),
+    require('@tailwindcss/typography'),
+  ],
+}
+```
+
+- Dans `src/styles.scss`, ajoutez :
+```scss
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
+
+## 4. Installation des plugins Tailwind
+```bash
+npm install @tailwindcss/forms @tailwindcss/typography
+npm install @fortawesome/fontawesome-free
