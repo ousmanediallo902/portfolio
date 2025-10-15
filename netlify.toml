@@ -3,4 +3,4 @@
   publish = "dist/portfolio_ousmane" 
 
 [[plugins]]
-  package = "@netlify/angular-runtime"
+
