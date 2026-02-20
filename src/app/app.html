@@ -1,16 +1,32 @@
 <!-- Navbar -->
-<!-- Navbar -->
-<nav class="bg-gray-900 text-white fixed w-full top-0 z-50 shadow-lg">
+<nav class="bg-gray-900 text-white fixed w-full top-0 z-50 shadow-lg transition-all duration-300">
   <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-    <div class="text-2xl font-bold">Ousmane Diallo</div>
+    <div class="text-2xl font-bold bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
+      Ousmane Diallo
+    </div>
     <ul class="hidden md:flex space-x-8">
-      <li><a href="#accueil" class="hover:text-blue-400 transition">Accueil</a></li>
-      <li><a href="#competences" class="hover:text-blue-400 transition">Compétences</a></li>
-      <li><a href="#projets" class="hover:text-blue-400 transition">Projets</a></li>
-      <li><a href="#about" class="hover:text-blue-400 transition">About</a></li>
-      <li><a href="#contact" class="hover:text-blue-400 transition">Contact</a></li>
+      <li><a href="#accueil" class="hover:text-blue-400 transition-all duration-300 relative group">
+        Accueil
+        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-400 group-hover:w-full transition-all duration-300"></span>
+      </a></li>
+      <li><a href="#about" class="hover:text-blue-400 transition-all duration-300 relative group">
+        À propos
+        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-400 group-hover:w-full transition-all duration-300"></span>
+      </a></li>
+      <li><a href="#competences" class="hover:text-blue-400 transition-all duration-300 relative group">
+        Compétences
+        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-400 group-hover:w-full transition-all duration-300"></span>
+      </a></li>
+      <li><a href="#projets" class="hover:text-blue-400 transition-all duration-300 relative group">
+        Projets
+        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-400 group-hover:w-full transition-all duration-300"></span>
+      </a></li>
+      <li><a href="#contact" class="hover:text-blue-400 transition-all duration-300 relative group">
+        Contact
+        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-400 group-hover:w-full transition-all duration-300"></span>
+      </a></li>
     </ul>
-    <button class="md:hidden text-white focus:outline-none">
+    <button (click)="toggleMobileMenu()" class="md:hidden text-white focus:outline-none">
       <!-- Icon burger -->
       <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none"
            viewBox="0 0 24 24" stroke="currentColor">
@@ -18,6 +34,15 @@
               stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
       </svg>
     </button>
+  </div>
+  
+  <!-- Mobile menu -->
+  <div *ngIf="mobileMenuOpen" class="md:hidden bg-gray-800 px-6 py-4 space-y-3 animate-fadeIn">
+    <a (click)="scrollToAndClose('accueil')" class="block hover:text-blue-400 transition cursor-pointer">Accueil</a>
+    <a (click)="scrollToAndClose('about')" class="block hover:text-blue-400 transition cursor-pointer">À propos</a>
+    <a (click)="scrollToAndClose('competences')" class="block hover:text-blue-400 transition cursor-pointer">Compétences</a>
+    <a (click)="scrollToAndClose('projets')" class="block hover:text-blue-400 transition cursor-pointer">Projets</a>
+    <a (click)="scrollToAndClose('contact')" class="block hover:text-blue-400 transition cursor-pointer">Contact</a>
   </div>
 </nav>
 
@@ -32,8 +57,9 @@
 
 <h5 class="text-2xl md:text-4xl font-extrabold mb-4"> Salut, je suis <span class="text-blue-400">Ousmane Diallo</span></h5>
   <p class="text-lg md:text-xl max-w-2xl mb-6">
-    Développeur Web & Mobile, maîtrisant Angular, Spring, Flutter et Laravel.
-    Diplômé en Systèmes Réseaux et Télécommunications, passionné par la création d’applications performantes.
+    Développeur Full Stack & DevOps | Master 2 Systèmes d'Information
+    <br>
+    <span class="text-blue-300">Angular • Spring Boot • Flutter • Laravel • Docker • Kubernetes • CI/CD</span>
   </p>
   <a href="#projets" class="bg-blue-500 hover:bg-blue-600 px-6 py-3 rounded-lg text-white font-semibold transition">
     Voir mes projets
@@ -50,14 +76,144 @@
       </div>
       <div>
         <p class="text-lg text-gray-700 mb-4">
-          Je suis Ousmane Diallo, jeune diplômé Avec Une Licence en Systèmes Réseaux et Télécommunications avec une passion pour le développement web et mobile Niveau Bac+4 .
+          Je suis <span class="font-semibold text-blue-600">Ousmane Diallo</span>, développeur <span class="font-semibold">Full Stack & DevOps</span> passionné, actuellement en <span class="font-semibold text-blue-600">Master 2 Systèmes d'Information</span>.
         </p>
         <p class="text-lg text-gray-700 mb-4">
-          Mon parcours académique m'a doté de solides compétences en infrastructure réseau, Ainsi mon orientation en master systeme d'information m'a permis de maîtriser les technologies modernes de développement.
+          Diplômé d'une Licence en Systèmes Réseaux et Télécommunications (BAC+3), j'ai approfondi mes compétences en poursuivant un Master en Systèmes d'Information, me spécialisant dans le <span class="font-semibold">développement Full Stack moderne</span> et les <span class="font-semibold">pratiques DevOps</span>.
+        </p>
+        <p class="text-lg text-gray-700 mb-4">
+          Mon parcours unique combine une solide expertise en <span class="font-semibold">infrastructure réseau</span>, en <span class="font-semibold">développement web et mobile</span> (Angular, Spring Boot, Flutter, Laravel), et en <span class="font-semibold">automatisation DevOps</span> (Docker, Kubernetes, CI/CD).
         </p>
         <p class="text-lg text-gray-700">
-          Ce qui me motive ? Créer des solutions technologiques qui résolvent des problèmes concrets tout en offrant une expérience utilisateur exceptionnelle.
+          Ma mission ? Concevoir et déployer des <span class="font-semibold text-blue-600">solutions technologiques complètes</span>, de l'architecture applicative à la mise en production automatisée, tout en garantissant performance, scalabilité et sécurité.
         </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Section Formation & Parcours -->
+<section class="section bg-white py-16">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 class="text-3xl font-extrabold text-gray-900 mb-12 text-center">Formation & Parcours Académique</h2>
+    
+    <div class="max-w-4xl mx-auto">
+      <!-- Timeline -->
+      <div class="space-y-8">
+        
+        <!-- Master 2 -->
+        <div class="relative pl-8 border-l-4 border-blue-500 hover:border-blue-600 transition-all duration-300">
+          <div class="absolute -left-3 top-0 w-6 h-6 bg-blue-500 rounded-full border-4 border-white shadow"></div>
+          <div class="bg-gradient-to-r from-blue-50 to-cyan-50 p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 card-modern">
+            <div class="flex justify-between items-start mb-2">
+              <h3 class="text-xl font-bold text-gray-900">Master 2 Systèmes d'Information</h3>
+              <span class="bg-blue-500 text-white text-xs font-semibold px-3 py-1 rounded-full">En cours</span>
+            </div>
+            <p class="text-blue-600 font-medium mb-3">2024 - 2026</p>
+            <p class="text-gray-700 mb-4">
+              Spécialisation en développement Full Stack et pratiques DevOps modernes. Formation approfondie en architecture logicielle, cloud computing, et gestion de projets IT.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full skill-badge">Architecture Microservices</span>
+              <span class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full skill-badge">DevOps & Cloud</span>
+              <span class="bg-purple-100 text-purple-800 text-xs px-3 py-1 rounded-full skill-badge">Gestion de Projets</span>
+              <span class="bg-cyan-100 text-cyan-800 text-xs px-3 py-1 rounded-full skill-badge">Sécurité IT</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Master 1 -->
+        <div class="relative pl-8 border-l-4 border-green-500 hover:border-green-600 transition-all duration-300">
+          <div class="absolute -left-3 top-0 w-6 h-6 bg-green-500 rounded-full border-4 border-white shadow"></div>
+          <div class="bg-gradient-to-r from-green-50 to-emerald-50 p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 card-modern">
+            <div class="flex justify-between items-start mb-2">
+              <h3 class="text-xl font-bold text-gray-900">Master 1 Systèmes d'Information</h3>
+              <span class="bg-green-500 text-white text-xs font-semibold px-3 py-1 rounded-full">Complété</span>
+            </div>
+            <p class="text-green-600 font-medium mb-3">2023 - 2024</p>
+            <p class="text-gray-700 mb-4">
+              Formation en développement d'applications d'entreprise, bases de données avancées, et introduction aux technologies cloud et conteneurisation.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full skill-badge">Développement Web Avancé</span>
+              <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full skill-badge">Bases de Données</span>
+              <span class="bg-purple-100 text-purple-800 text-xs px-3 py-1 rounded-full skill-badge">Cloud Computing</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Licence -->
+        <div class="relative pl-8 border-l-4 border-purple-500 hover:border-purple-600 transition-all duration-300">
+          <div class="absolute -left-3 top-0 w-6 h-6 bg-purple-500 rounded-full border-4 border-white shadow"></div>
+          <div class="bg-gradient-to-r from-purple-50 to-violet-50 p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 card-modern">
+            <div class="flex justify-between items-start mb-2">
+              <h3 class="text-xl font-bold text-gray-900">Licence Systèmes Réseaux et Télécommunications</h3>
+              <span class="bg-purple-500 text-white text-xs font-semibold px-3 py-1 rounded-full">BAC+3</span>
+            </div>
+            <p class="text-purple-600 font-medium mb-3">2020 - 2023</p>
+            <p class="text-gray-700 mb-4">
+              Formation complète en infrastructure réseau, systèmes de télécommunications, sécurité informatique et administration système. Bases solides en développement web.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="bg-purple-100 text-purple-800 text-xs px-3 py-1 rounded-full skill-badge">Réseaux & Télécoms</span>
+              <span class="bg-red-100 text-red-800 text-xs px-3 py-1 rounded-full skill-badge">Cisco CCNA</span>
+              <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full skill-badge">Administration Système</span>
+              <span class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full skill-badge">Sécurité Réseau</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Certifications -->
+      <div class="mt-12 bg-gradient-to-r from-gray-50 to-slate-50 p-8 rounded-lg shadow-md">
+        <h3 class="text-2xl font-bold text-gray-900 mb-6 text-center">Certifications & Compétences Clés</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="flex items-start space-x-4">
+            <div class="flex-shrink-0 bg-blue-100 p-3 rounded-lg">
+              <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+              </svg>
+            </div>
+            <div>
+              <h4 class="font-semibold text-gray-900">Cisco CCNA</h4>
+              <p class="text-sm text-gray-600">Certification réseaux et routage</p>
+            </div>
+          </div>
+          <div class="flex items-start space-x-4">
+            <div class="flex-shrink-0 bg-green-100 p-3 rounded-lg">
+              <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
+              </svg>
+            </div>
+            <div>
+              <h4 class="font-semibold text-gray-900">Full Stack Development</h4>
+              <p class="text-sm text-gray-600">Angular, Spring Boot, Laravel, Node.js</p>
+            </div>
+          </div>
+          <div class="flex items-start space-x-4">
+            <div class="flex-shrink-0 bg-cyan-100 p-3 rounded-lg">
+              <svg class="w-6 h-6 text-cyan-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"/>
+              </svg>
+            </div>
+            <div>
+              <h4 class="font-semibold text-gray-900">DevOps & Cloud</h4>
+              <p class="text-sm text-gray-600">Docker, Kubernetes, AWS, Azure, CI/CD</p>
+            </div>
+          </div>
+          <div class="flex items-start space-x-4">
+            <div class="flex-shrink-0 bg-purple-100 p-3 rounded-lg">
+              <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/>
+              </svg>
+            </div>
+            <div>
+              <h4 class="font-semibold text-gray-900">Mobile Development</h4>
+              <p class="text-sm text-gray-600">Flutter, React Native, Firebase</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -68,34 +224,189 @@
     <h2 class="text-3xl font-extrabold text-gray-900 mb-12 text-center">Mes Compétences Techniques</h2>
     
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      <!-- Développement Web -->
-      <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow">
+      
+      <!-- Frontend Development -->
+      <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 card-modern">
         <div class="flex items-center mb-4">
           <div class="bg-blue-100 p-3 rounded-full">
             <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
             </svg>
           </div>
-          <h3 class="text-xl font-semibold ml-3">Développement Web</h3>
+          <h3 class="text-xl font-semibold ml-3">Frontend Development</h3>
         </div>
         <ul class="space-y-2">
           <li class="flex items-center">
-            <span class="bg-blue-200 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded mr-2">Expert</span>
-            Angular • Laravel
+            <span class="bg-blue-200 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded mr-2 skill-badge">Expert</span>
+            Angular 18+ • TypeScript
           </li>
           <li class="flex items-center">
-            <span class="bg-green-200 text-green-800 text-xs font-semibold px-2.5 py-0.5 rounded mr-2">Avancé</span>
-            Spring Boot • API REST
+            <span class="bg-green-200 text-green-800 text-xs font-semibold px-2.5 py-0.5 rounded mr-2 skill-badge">Avancé</span>
+            React.js • Vue.js
           </li>
           <li class="flex items-center">
-            <span class="bg-yellow-200 text-yellow-800 text-xs font-semibold px-2.5 py-0.5 rounded mr-2">Intermédiaire</span>
-            Node.js • Express
+            <span class="bg-purple-200 text-purple-800 text-xs font-semibold px-2.5 py-0.5 rounded mr-2 skill-badge">UI/UX</span>
+            TailwindCSS • Bootstrap • Material UI
+          </li>
+          <li class="flex items-center">
+            <span class="bg-yellow-200 text-yellow-800 text-xs font-semibold px-2.5 py-0.5 rounded mr-2 skill-badge">État</span>
+            RxJS • NgRx • Redux
+          </li>
+        </ul>
+      </div>
+
+      <!-- Backend Development -->
+      <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 card-modern">
+        <div class="flex items-center mb-4">
+          <div class="bg-green-100 p-3 rounded-full">
+            <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold ml-3">Backend Development</h3>
+        </div>
+        <ul class="space-y-2">
+          <li class="flex items-center">
+            <span class="bg-blue-200 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded mr-2 skill-badge">Expert</span>
+            Spring Boot • Laravel
+          </li>
+          <li class="flex items-center">
+            <span class="bg-green-200 text-green-800 text-xs font-semibold px-2.5 py-0.5 rounded mr-2 skill-badge">Avancé</span>
+            Node.js • Express.js
+          </li>
+          <li class="flex items-center">
+            <span class="bg-purple-200 text-purple-800 text-xs font-semibold px-2.5 py-0.5 rounded mr-2 skill-badge">API</span>
+            REST • GraphQL • WebSockets
+          </li>
+          <li class="flex items-center">
+            <span class="bg-yellow-200 text-yellow-800 text-xs font-semibold px-2.5 py-0.5 rounded mr-2 skill-badge">Sécurité</span>
+            JWT • OAuth2 • Spring Security
+          </li>
+        </ul>
+      </div>
+
+      <!-- Bases de Données -->
+      <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 card-modern">
+        <div class="flex items-center mb-4">
+          <div class="bg-indigo-100 p-3 rounded-full">
+            <svg class="w-6 h-6 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold ml-3">Bases de Données</h3>
+        </div>
+        <ul class="space-y-2">
+          <li class="flex items-center">
+            <span class="bg-blue-200 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded mr-2 skill-badge">SQL</span>
+            MySQL • PostgreSQL • Oracle
+          </li>
+          <li class="flex items-center">
+            <span class="bg-green-200 text-green-800 text-xs font-semibold px-2.5 py-0.5 rounded mr-2 skill-badge">NoSQL</span>
+            MongoDB • Firebase • Redis
+          </li>
+          <li class="flex items-center">
+            <span class="bg-purple-200 text-purple-800 text-xs font-semibold px-2.5 py-0.5 rounded mr-2 skill-badge">ORM</span>
+            Hibernate • Eloquent • TypeORM
+          </li>
+          <li class="flex items-center">
+            <span class="bg-yellow-200 text-yellow-800 text-xs font-semibold px-2.5 py-0.5 rounded mr-2 skill-badge">Design</span>
+            Modélisation • Optimisation
+          </li>
+        </ul>
+      </div>
+
+      <!-- DevOps & Cloud -->
+      <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 card-modern border-2 border-blue-200">
+        <div class="flex items-center mb-4">
+          <div class="bg-cyan-100 p-3 rounded-full">
+            <svg class="w-6 h-6 text-cyan-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold ml-3">DevOps & Cloud</h3>
+        </div>
+        <ul class="space-y-2">
+          <li class="flex items-center">
+            <span class="bg-blue-200 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded mr-2 skill-badge">Containers</span>
+            Docker • Docker Compose
+          </li>
+          <li class="flex items-center">
+            <span class="bg-green-200 text-green-800 text-xs font-semibold px-2.5 py-0.5 rounded mr-2 skill-badge">Orchestration</span>
+            Kubernetes • Docker Swarm
+          </li>
+          <li class="flex items-center">
+            <span class="bg-purple-200 text-purple-800 text-xs font-semibold px-2.5 py-0.5 rounded mr-2 skill-badge">Cloud</span>
+            AWS • Azure • Google Cloud
+          </li>
+          <li class="flex items-center">
+            <span class="bg-cyan-200 text-cyan-800 text-xs font-semibold px-2.5 py-0.5 rounded mr-2 skill-badge">IaC</span>
+            Terraform • Ansible
+          </li>
+        </ul>
+      </div>
+
+      <!-- CI/CD & Automation -->
+      <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 card-modern border-2 border-blue-200">
+        <div class="flex items-center mb-4">
+          <div class="bg-orange-100 p-3 rounded-full">
+            <svg class="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold ml-3">CI/CD & Automation</h3>
+        </div>
+        <ul class="space-y-2">
+          <li class="flex items-center">
+            <span class="bg-blue-200 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded mr-2 skill-badge">CI/CD</span>
+            GitHub Actions • Jenkins • GitLab CI
+          </li>
+          <li class="flex items-center">
+            <span class="bg-green-200 text-green-800 text-xs font-semibold px-2.5 py-0.5 rounded mr-2 skill-badge">VCS</span>
+            Git • GitHub • GitLab • Bitbucket
+          </li>
+          <li class="flex items-center">
+            <span class="bg-purple-200 text-purple-800 text-xs font-semibold px-2.5 py-0.5 rounded mr-2 skill-badge">Testing</span>
+            Jest • JUnit • Selenium • Cypress
+          </li>
+          <li class="flex items-center">
+            <span class="bg-orange-200 text-orange-800 text-xs font-semibold px-2.5 py-0.5 rounded mr-2 skill-badge">Qualité</span>
+            SonarQube • ESLint • Prettier
+          </li>
+        </ul>
+      </div>
+
+      <!-- Monitoring & Observability -->
+      <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 card-modern border-2 border-blue-200">
+        <div class="flex items-center mb-4">
+          <div class="bg-pink-100 p-3 rounded-full">
+            <svg class="w-6 h-6 text-pink-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold ml-3">Monitoring & Logs</h3>
+        </div>
+        <ul class="space-y-2">
+          <li class="flex items-center">
+            <span class="bg-blue-200 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded mr-2 skill-badge">Monitoring</span>
+            Prometheus • Grafana
+          </li>
+          <li class="flex items-center">
+            <span class="bg-green-200 text-green-800 text-xs font-semibold px-2.5 py-0.5 rounded mr-2 skill-badge">Logs</span>
+            ELK Stack • Loki
+          </li>
+          <li class="flex items-center">
+            <span class="bg-purple-200 text-purple-800 text-xs font-semibold px-2.5 py-0.5 rounded mr-2 skill-badge">APM</span>
+            New Relic • Datadog
+          </li>
+          <li class="flex items-center">
+            <span class="bg-pink-200 text-pink-800 text-xs font-semibold px-2.5 py-0.5 rounded mr-2 skill-badge">Alerting</span>
+            PagerDuty • Slack Integration
           </li>
         </ul>
       </div>
 
       <!-- Développement Mobile -->
-      <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow">
+      <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 card-modern">
         <div class="flex items-center mb-4">
           <div class="bg-purple-100 p-3 rounded-full">
             <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -106,22 +417,26 @@
         </div>
         <ul class="space-y-2">
           <li class="flex items-center">
-            <span class="bg-blue-200 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded mr-2">Expert</span>
+            <span class="bg-blue-200 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded mr-2 skill-badge">Expert</span>
             Flutter (Dart)
           </li>
           <li class="flex items-center">
-            <span class="bg-green-200 text-green-800 text-xs font-semibold px-2.5 py-0.5 rounded mr-2">Avancé</span>
+            <span class="bg-green-200 text-green-800 text-xs font-semibold px-2.5 py-0.5 rounded mr-2 skill-badge">Avancé</span>
             React Native
           </li>
           <li class="flex items-center">
-            <span class="bg-purple-200 text-purple-800 text-xs font-semibold px-2.5 py-0.5 rounded mr-2">CI/CD</span>
-            Publication sur Stores
+            <span class="bg-purple-200 text-purple-800 text-xs font-semibold px-2.5 py-0.5 rounded mr-2 skill-badge">Stores</span>
+            Play Store • App Store
+          </li>
+          <li class="flex items-center">
+            <span class="bg-yellow-200 text-yellow-800 text-xs font-semibold px-2.5 py-0.5 rounded mr-2 skill-badge">Backend</span>
+            Firebase • Parse
           </li>
         </ul>
       </div>
 
       <!-- Réseaux & Sécurité -->
-      <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow">
+      <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 card-modern">
         <div class="flex items-center mb-4">
           <div class="bg-red-100 p-3 rounded-full">
             <svg class="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -132,97 +447,54 @@
         </div>
         <ul class="space-y-2">
           <li class="flex items-center">
-            <span class="bg-blue-200 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded mr-2">Diplômé</span>
-            Systèmes Réseaux & Télécoms
+            <span class="bg-blue-200 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded mr-2 skill-badge">Réseaux</span>
+            TCP/IP • DNS • VPN • Firewall
           </li>
           <li class="flex items-center">
-            <span class="bg-green-200 text-green-800 text-xs font-semibold px-2.5 py-0.5 rounded mr-2">Certifié</span>
+            <span class="bg-green-200 text-green-800 text-xs font-semibold px-2.5 py-0.5 rounded mr-2 skill-badge">Certifié</span>
             Cisco CCNA • Sécurité Réseau
           </li>
           <li class="flex items-center">
-            <span class="bg-yellow-200 text-yellow-800 text-xs font-semibold px-2.5 py-0.5 rounded mr-2">Expérience</span>
-            Configuration Routeurs/Switch
+            <span class="bg-red-200 text-red-800 text-xs font-semibold px-2.5 py-0.5 rounded mr-2 skill-badge">Sécurité</span>
+            SSL/TLS • Cryptographie • OWASP
+          </li>
+          <li class="flex items-center">
+            <span class="bg-yellow-200 text-yellow-800 text-xs font-semibold px-2.5 py-0.5 rounded mr-2 skill-badge">Config</span>
+            Routeurs • Switches • Load Balancing
           </li>
         </ul>
       </div>
 
-      <!-- Data & Cloud -->
-      <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow">
+      <!-- Méthodologies Agiles -->
+      <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 card-modern">
         <div class="flex items-center mb-4">
-          <div class="bg-indigo-100 p-3 rounded-full">
-            <svg class="w-6 h-6 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
-            </svg>
-          </div>
-          <h3 class="text-xl font-semibold ml-3">Data & Cloud</h3>
-        </div>
-        <ul class="space-y-2">
-          <li class="flex items-center">
-            <span class="bg-blue-200 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded mr-2">Expérience</span>
-            Analyse/Traitement de données
-          </li>
-          <li class="flex items-center">
-            <span class="bg-green-200 text-green-800 text-xs font-semibold px-2.5 py-0.5 rounded mr-2">Cloud</span>
-            AWS • Firebase • Docker
-          </li>
-          <li class="flex items-center">
-            <span class="bg-purple-200 text-purple-800 text-xs font-semibold px-2.5 py-0.5 rounded mr-2">IA/ML</span>
-            Python • TensorFlow Basics
-          </li>
-        </ul>
-      </div>
-
-      <!-- Méthodologies -->
-      <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow">
-        <div class="flex items-center mb-4">
-          <div class="bg-green-100 p-3 rounded-full">
-            <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+          <div class="bg-teal-100 p-3 rounded-full">
+            <svg class="w-6 h-6 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
             </svg>
           </div>
           <h3 class="text-xl font-semibold ml-3">Méthodologies</h3>
         </div>
         <ul class="space-y-2">
           <li class="flex items-center">
-            <span class="bg-blue-200 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded mr-2">Agile</span>
-            Scrum • Kanban
+            <span class="bg-blue-200 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded mr-2 skill-badge">Agile</span>
+            Scrum • Kanban • Lean
           </li>
           <li class="flex items-center">
-            <span class="bg-green-200 text-green-800 text-xs font-semibold px-2.5 py-0.5 rounded mr-2">DevOps</span>
-            CI/CD • Git • GitHub Actions
+            <span class="bg-green-200 text-green-800 text-xs font-semibold px-2.5 py-0.5 rounded mr-2 skill-badge">DevOps</span>
+            Culture DevOps • SRE
           </li>
           <li class="flex items-center">
-            <span class="bg-yellow-200 text-yellow-800 text-xs font-semibold px-2.5 py-0.5 rounded mr-2">Tests</span>
-            Unitaires • Intégration
+            <span class="bg-purple-200 text-purple-800 text-xs font-semibold px-2.5 py-0.5 rounded mr-2 skill-badge">Outils</span>
+            Jira • Trello • Confluence
+          </li>
+          <li class="flex items-center">
+            <span class="bg-teal-200 text-teal-800 text-xs font-semibold px-2.5 py-0.5 rounded mr-2 skill-badge">Pratiques</span>
+            TDD • Code Review • Pair Programming
           </li>
         </ul>
       </div>
 
-      <!-- Langues -->
-      <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow">
-        <div class="flex items-center mb-4">
-          <div class="bg-yellow-100 p-3 rounded-full">
-            <svg class="w-6 h-6 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-            </svg>
-          </div>
-          <h3 class="text-xl font-semibold ml-3">Langues</h3>
-        </div>
-        <ul class="space-y-2">
-          <li class="flex items-center">
-            <span class="bg-blue-200 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded mr-2">Courant</span>
-            Français • Anglais
-          </li>
-          <li class="flex items-center">
-            <span class="bg-green-200 text-green-800 text-xs font-semibold px-2.5 py-0.5 rounded mr-2">Technique</span>
-            Documentation technique
-          </li>
-          <li class="flex items-center">
-            <span class="bg-yellow-200 text-yellow-800 text-xs font-semibold px-2.5 py-0.5 rounded mr-2">Autres</span>
-            Langues locales
-          </li>
-        </ul>
-      </div>
     </div>
   </div>
 </section>
@@ -232,22 +504,74 @@
     <h2 class="text-3xl font-extrabold text-gray-900 mb-12 text-center">Mes Réalisations</h2>
     
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      <!-- Projet e-commerce Laravel -->
-      <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow">
-        <div class="h-48 bg-blue-600 flex items-center justify-center">
+      
+      <!-- Plateforme Microservices E-commerce -->
+      <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 card-modern">
+        <div class="h-48 bg-gradient-to-br from-blue-600 to-blue-800 flex items-center justify-center">
           <svg class="w-16 h-16 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/>
           </svg>
         </div>
         <div class="p-6">
-          <h3 class="text-xl font-bold mb-2">Plateforme e-commerce</h3>
-          <p class="text-gray-600 mb-4">Solution complète avec gestion de catalogue, paiements et utilisateurs</p>
+          <h3 class="text-xl font-bold mb-2">Plateforme E-commerce Microservices</h3>
+          <p class="text-gray-600 mb-4">Architecture microservices complète avec orchestration Kubernetes, API Gateway et gestion distribuée des transactions</p>
           <div class="flex flex-wrap gap-2 mb-4">
-            <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">Laravel</span>
-            <span class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full">MySQL</span>
-            <span class="bg-yellow-100 text-yellow-800 text-xs px-3 py-1 rounded-full">JavaScript</span>
+            <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full skill-badge">Spring Boot</span>
+            <span class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full skill-badge">Angular</span>
+            <span class="bg-purple-100 text-purple-800 text-xs px-3 py-1 rounded-full skill-badge">Kubernetes</span>
+            <span class="bg-cyan-100 text-cyan-800 text-xs px-3 py-1 rounded-full skill-badge">Docker</span>
           </div>
-          <button class="text-blue-600 hover:text-blue-800 font-medium text-sm flex items-center">
+          <button class="text-blue-600 hover:text-blue-800 font-medium text-sm flex items-center btn-modern">
+            Voir les détails
+            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Infrastructure as Code Multi-Cloud -->
+      <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 card-modern border-2 border-cyan-200">
+        <div class="h-48 bg-gradient-to-br from-cyan-600 to-cyan-800 flex items-center justify-center">
+          <svg class="w-16 h-16 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"/>
+          </svg>
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold mb-2">Infrastructure Multi-Cloud avec IaC</h3>
+          <p class="text-gray-600 mb-4">Déploiement automatisé d'infrastructures sur AWS et Azure avec Terraform, monitoring Prometheus et alerting</p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="bg-purple-100 text-purple-800 text-xs px-3 py-1 rounded-full skill-badge">Terraform</span>
+            <span class="bg-orange-100 text-orange-800 text-xs px-3 py-1 rounded-full skill-badge">Ansible</span>
+            <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full skill-badge">AWS</span>
+            <span class="bg-cyan-100 text-cyan-800 text-xs px-3 py-1 rounded-full skill-badge">Azure</span>
+          </div>
+          <button class="text-blue-600 hover:text-blue-800 font-medium text-sm flex items-center btn-modern">
+            Voir les détails
+            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Pipeline CI/CD Avancé -->
+      <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 card-modern border-2 border-orange-200">
+        <div class="h-48 bg-gradient-to-br from-orange-600 to-orange-800 flex items-center justify-center">
+          <svg class="w-16 h-16 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+          </svg>
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold mb-2">Pipeline CI/CD Full Stack</h3>
+          <p class="text-gray-600 mb-4">Pipeline automatisé avec tests unitaires, intégration, sécurité (SonarQube), build Docker et déploiement Kubernetes</p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full skill-badge">GitHub Actions</span>
+            <span class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full skill-badge">Jenkins</span>
+            <span class="bg-purple-100 text-purple-800 text-xs px-3 py-1 rounded-full skill-badge">SonarQube</span>
+            <span class="bg-cyan-100 text-cyan-800 text-xs px-3 py-1 rounded-full skill-badge">ArgoCD</span>
+          </div>
+          <button class="text-blue-600 hover:text-blue-800 font-medium text-sm flex items-center btn-modern">
             Voir les détails
             <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
@@ -257,21 +581,22 @@
       </div>
 
       <!-- Gestion de bibliothèque -->
-      <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow">
-        <div class="h-48 bg-green-600 flex items-center justify-center">
+      <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 card-modern">
+        <div class="h-48 bg-gradient-to-br from-green-600 to-green-800 flex items-center justify-center">
           <svg class="w-16 h-16 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
           </svg>
         </div>
         <div class="p-6">
-          <h3 class="text-xl font-bold mb-2">Système de gestion de bibliothèque</h3>
-          <p class="text-gray-600 mb-4">Application avec bases de données réparties et synchronisation</p>
+          <h3 class="text-xl font-bold mb-2">Système de bibliothèque distribuée</h3>
+          <p class="text-gray-600 mb-4">Application Full Stack avec bases de données réparties, synchronisation temps réel et API REST sécurisée</p>
           <div class="flex flex-wrap gap-2 mb-4">
-            <span class="bg-red-100 text-red-800 text-xs px-3 py-1 rounded-full">Laravel</span>
-            <span class="bg-purple-100 text-purple-800 text-xs px-3 py-1 rounded-full">Architecture distribuée</span>
-            <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">API REST</span>
+            <span class="bg-red-100 text-red-800 text-xs px-3 py-1 rounded-full skill-badge">Laravel</span>
+            <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full skill-badge">MySQL</span>
+            <span class="bg-purple-100 text-purple-800 text-xs px-3 py-1 rounded-full skill-badge">Redis</span>
+            <span class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full skill-badge">API REST</span>
           </div>
-          <button class="text-blue-600 hover:text-blue-800 font-medium text-sm flex items-center">
+          <button class="text-blue-600 hover:text-blue-800 font-medium text-sm flex items-center btn-modern">
             Voir les détails
             <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
@@ -280,22 +605,23 @@
         </div>
       </div>
 
-      <!-- Gestion de stages -->
-      <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow">
-        <div class="h-48 bg-purple-600 flex items-center justify-center">
+      <!-- Plateforme de gestion de stages -->
+      <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 card-modern">
+        <div class="h-48 bg-gradient-to-br from-purple-600 to-purple-800 flex items-center justify-center">
           <svg class="w-16 h-16 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
           </svg>
         </div>
         <div class="p-6">
-          <h3 class="text-xl font-bold mb-2">Plateforme de gestion de stages</h3>
-          <p class="text-gray-600 mb-4">Solution dockerisée pour le suivi des stages étudiants</p>
+          <h3 class="text-xl font-bold mb-2">Plateforme gestion de stages</h3>
+          <p class="text-gray-600 mb-4">Application dockerisée avec Spring Boot, Angular, PostgreSQL et déploiement automatisé via CI/CD</p>
           <div class="flex flex-wrap gap-2 mb-4">
-            <span class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full">Spring Boot</span>
-            <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">Angular</span>
-            <span class="bg-indigo-100 text-indigo-800 text-xs px-3 py-1 rounded-full">Docker</span>
+            <span class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full skill-badge">Spring Boot</span>
+            <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full skill-badge">Angular</span>
+            <span class="bg-indigo-100 text-indigo-800 text-xs px-3 py-1 rounded-full skill-badge">Docker</span>
+            <span class="bg-cyan-100 text-cyan-800 text-xs px-3 py-1 rounded-full skill-badge">PostgreSQL</span>
           </div>
-          <button class="text-blue-600 hover:text-blue-800 font-medium text-sm flex items-center">
+          <button class="text-blue-600 hover:text-blue-800 font-medium text-sm flex items-center btn-modern">
             Voir les détails
             <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
@@ -304,22 +630,48 @@
         </div>
       </div>
 
-      <!-- Certificat de domicile -->
-      <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow">
-        <div class="h-48 bg-yellow-500 flex items-center justify-center">
+      <!-- Application Mobile Flutter -->
+      <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 card-modern">
+        <div class="h-48 bg-gradient-to-br from-yellow-500 to-yellow-700 flex items-center justify-center">
           <svg class="w-16 h-16 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/>
           </svg>
         </div>
         <div class="p-6">
-          <h3 class="text-xl font-bold mb-2">Application de certificat de domicile</h3>
-          <p class="text-gray-600 mb-4">Solution mobile pour la gestion des demandes administratives</p>
+          <h3 class="text-xl font-bold mb-2">App Mobile Flutter E-Services</h3>
+          <p class="text-gray-600 mb-4">Application mobile cross-platform avec authentification Firebase, notifications push et gestion hors ligne</p>
           <div class="flex flex-wrap gap-2 mb-4">
-            <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">Flutter</span>
-            <span class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full">Firebase</span>
-            <span class="bg-purple-100 text-purple-800 text-xs px-3 py-1 rounded-full">Mobile</span>
+            <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full skill-badge">Flutter</span>
+            <span class="bg-orange-100 text-orange-800 text-xs px-3 py-1 rounded-full skill-badge">Dart</span>
+            <span class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full skill-badge">Firebase</span>
+            <span class="bg-purple-100 text-purple-800 text-xs px-3 py-1 rounded-full skill-badge">REST API</span>
           </div>
-          <button class="text-blue-600 hover:text-blue-800 font-medium text-sm flex items-center">
+          <button class="text-blue-600 hover:text-blue-800 font-medium text-sm flex items-center btn-modern">
+            Voir les détails
+            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Monitoring Stack -->
+      <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 card-modern border-2 border-pink-200">
+        <div class="h-48 bg-gradient-to-br from-pink-600 to-pink-800 flex items-center justify-center">
+          <svg class="w-16 h-16 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+          </svg>
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold mb-2">Stack Monitoring & Observability</h3>
+          <p class="text-gray-600 mb-4">Solution complète de monitoring avec Prometheus, Grafana, ELK Stack, alerting et dashboards personnalisés</p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="bg-orange-100 text-orange-800 text-xs px-3 py-1 rounded-full skill-badge">Prometheus</span>
+            <span class="bg-purple-100 text-purple-800 text-xs px-3 py-1 rounded-full skill-badge">Grafana</span>
+            <span class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full skill-badge">ELK Stack</span>
+            <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full skill-badge">Loki</span>
+          </div>
+          <button class="text-blue-600 hover:text-blue-800 font-medium text-sm flex items-center btn-modern">
             Voir les détails
             <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
@@ -329,21 +681,22 @@
       </div>
 
       <!-- Analyse de données -->
-      <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow">
-        <div class="h-48 bg-red-600 flex items-center justify-center">
+      <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 card-modern">
+        <div class="h-48 bg-gradient-to-br from-red-600 to-red-800 flex items-center justify-center">
           <svg class="w-16 h-16 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
           </svg>
         </div>
         <div class="p-6">
-          <h3 class="text-xl font-bold mb-2">Analyse et prédiction de données</h3>
-          <p class="text-gray-600 mb-4">Outils de traitement et modèles prédictifs</p>
+          <h3 class="text-xl font-bold mb-2">Plateforme Data Analytics</h3>
+          <p class="text-gray-600 mb-4">Pipeline ETL, analyse de données massives, visualisations interactives et modèles ML prédictifs</p>
           <div class="flex flex-wrap gap-2 mb-4">
-            <span class="bg-yellow-100 text-yellow-800 text-xs px-3 py-1 rounded-full">Python</span>
-            <span class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full">Pandas</span>
-            <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">Machine Learning</span>
+            <span class="bg-yellow-100 text-yellow-800 text-xs px-3 py-1 rounded-full skill-badge">Python</span>
+            <span class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full skill-badge">Pandas</span>
+            <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full skill-badge">TensorFlow</span>
+            <span class="bg-purple-100 text-purple-800 text-xs px-3 py-1 rounded-full skill-badge">PostgreSQL</span>
           </div>
-          <button class="text-blue-600 hover:text-blue-800 font-medium text-sm flex items-center">
+          <button class="text-blue-600 hover:text-blue-800 font-medium text-sm flex items-center btn-modern">
             Voir les détails
             <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
@@ -352,22 +705,23 @@
         </div>
       </div>
 
-      <!-- IoT Détection de gaz -->
-      <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow">
-        <div class="h-48 bg-teal-600 flex items-center justify-center">
+      <!-- Système IoT -->
+      <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 card-modern">
+        <div class="h-48 bg-gradient-to-br from-teal-600 to-teal-800 flex items-center justify-center">
           <svg class="w-16 h-16 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"/>
           </svg>
         </div>
         <div class="p-6">
-          <h3 class="text-xl font-bold mb-2">Système IoT de détection de gaz</h3>
-          <p class="text-gray-600 mb-4">Solution connectée pour la sécurité domestique</p>
+          <h3 class="text-xl font-bold mb-2">Plateforme IoT & Edge Computing</h3>
+          <p class="text-gray-600 mb-4">Système IoT avec capteurs connectés, traitement edge, MQTT broker et dashboard temps réel</p>
           <div class="flex flex-wrap gap-2 mb-4">
-            <span class="bg-gray-100 text-gray-800 text-xs px-3 py-1 rounded-full">IoT</span>
-            <span class="bg-red-100 text-red-800 text-xs px-3 py-1 rounded-full">Capteurs</span>
-            <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">Temps réel</span>
+            <span class="bg-gray-100 text-gray-800 text-xs px-3 py-1 rounded-full skill-badge">IoT</span>
+            <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full skill-badge">MQTT</span>
+            <span class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full skill-badge">Node.js</span>
+            <span class="bg-red-100 text-red-800 text-xs px-3 py-1 rounded-full skill-badge">Arduino</span>
           </div>
-          <button class="text-blue-600 hover:text-blue-800 font-medium text-sm flex items-center">
+          <button class="text-blue-600 hover:text-blue-800 font-medium text-sm flex items-center btn-modern">
             Voir les détails
             <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
@@ -375,12 +729,13 @@
           </button>
         </div>
       </div>
+
     </div>
 
     <!-- Call to action -->
     <div class="mt-16 text-center">
-      <p class="text-lg text-gray-600 mb-6">Vous souhaitez en savoir plus sur un projet en particulier ?</p>
-      <a (click)="scrollTo('contact')" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 transition-colors cursor-pointer">
+      <p class="text-lg text-gray-600 mb-6">Vous souhaitez en savoir plus sur mes projets ou collaborer ?</p>
+      <a (click)="scrollTo('contact')" class="inline-flex items-center px-8 py-4 border border-transparent text-base font-medium rounded-lg shadow-lg text-white bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 transition-all duration-300 transform hover:scale-105 cursor-pointer btn-modern">
         Contactez-moi
         <svg class="ml-3 -mr-1 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
@@ -477,15 +832,95 @@
         </div>
 
         <!-- Disponibilité -->
-        <div class="bg-blue-50 p-6 rounded-lg border border-blue-200">
-          <h3 class="text-lg font-medium text-blue-800 mb-3">Disponibilité</h3>
-          <p class="text-gray-700">Je suis actuellement ouvert aux opportunités de :</p>
-          <ul class="list-disc pl-5 mt-2 space-y-1 text-gray-600">
-            <li>Développement Fullstack</li>ng serve
-            <li>Projets hybrides IT/Développement</li>
+        <div class="bg-gradient-to-r from-blue-50 to-cyan-50 p-6 rounded-lg border-2 border-blue-200">
+          <h3 class="text-lg font-medium text-blue-800 mb-3 flex items-center">
+            <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+            Disponibilité & Opportunités
+          </h3>
+          <p class="text-gray-700 mb-3">Actuellement en <span class="font-semibold text-blue-600">Master 2 Systèmes d'Information</span>, je suis ouvert aux opportunités de :</p>
+          <ul class="list-disc pl-5 mt-2 space-y-2 text-gray-700">
+            <li><span class="font-semibold">Développement Full Stack</span> (Angular, Spring Boot, Laravel)</li>
+            <li><span class="font-semibold">DevOps & Cloud Engineering</span> (Docker, Kubernetes, CI/CD)</li>
+            <li><span class="font-semibold">Architecture Microservices</span> & Solutions Scalables</li>
+            <li><span class="font-semibold">Stages & Alternances</span> en entreprise innovante</li>
+            <li><span class="font-semibold">Projets Freelance</span> & Missions techniques</li>
           </ul>
         </div>
       </div>
     </div>
   </div>
 </section>
+
+<!-- Footer -->
+<footer class="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 text-white py-12">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+      
+      <!-- À propos -->
+      <div>
+        <h3 class="text-xl font-bold mb-4 gradient-text">Ousmane Diallo</h3>
+        <p class="text-gray-300 mb-4">
+          Développeur Full Stack & DevOps passionné, spécialisé en architectures modernes, cloud computing et automatisation.
+        </p>
+        <p class="text-gray-400 text-sm">
+          Master 2 Systèmes d'Information
+        </p>
+      </div>
+
+      <!-- Liens rapides -->
+      <div>
+        <h3 class="text-xl font-bold mb-4">Navigation</h3>
+        <ul class="space-y-2">
+          <li><a href="#accueil" class="text-gray-300 hover:text-blue-400 transition-colors">Accueil</a></li>
+          <li><a href="#about" class="text-gray-300 hover:text-blue-400 transition-colors">À propos</a></li>
+          <li><a href="#competences" class="text-gray-300 hover:text-blue-400 transition-colors">Compétences</a></li>
+          <li><a href="#projets" class="text-gray-300 hover:text-blue-400 transition-colors">Projets</a></li>
+          <li><a href="#contact" class="text-gray-300 hover:text-blue-400 transition-colors">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact & Réseaux -->
+      <div>
+        <h3 class="text-xl font-bold mb-4">Restons connectés</h3>
+        <div class="space-y-3">
+          <a href="mailto:diallo798752@gmail.com" class="flex items-center text-gray-300 hover:text-blue-400 transition-colors">
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+            </svg>
+            diallo798752@gmail.com
+          </a>
+          <a href="tel:+22178390631" class="flex items-center text-gray-300 hover:text-green-400 transition-colors">
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+            </svg>
+            +221 78 390 63 41
+          </a>
+          <div class="flex space-x-4 mt-4">
+            <a href="https://github.com/ousmanediallo902" target="_blank" class="bg-gray-700 hover:bg-gray-600 p-3 rounded-full transition-all duration-300 transform hover:scale-110">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+              </svg>
+            </a>
+            <a href="https://linkedin.com/in/votreprofil" target="_blank" class="bg-blue-700 hover:bg-blue-600 p-3 rounded-full transition-all duration-300 transform hover:scale-110">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Copyright -->
+    <div class="border-t border-gray-700 pt-8 mt-8 text-center">
+      <p class="text-gray-400 text-sm">
+        &copy; 2026 Ousmane Diallo. Tous droits réservés. | Développeur Full Stack & DevOps
+      </p>
+      <p class="text-gray-500 text-xs mt-2">
+        Conçu avec <span class="text-red-500">❤</span> en utilisant Angular, TailwindCSS & TypeScript
+      </p>
+    </div>
+  </div>
+</footer>
